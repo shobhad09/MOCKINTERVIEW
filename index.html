@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="./jquery-1.9.1.js.download"></script>
+  <script type="text/javascript" src="./jquery-ui.js.download"></script>
+  <link rel="stylesheet" type="text/css" href="./jquery-ui.css">
+  <style type="text/css">
+    #container{ width: 100%;}
+    #content{ width: 850px; height: 600px; border: 1px solid #000; position: relative; margin: 0 auto;}
+    #draggable-red, #draggable-blue, #draggable-green{width: 100px; height: 100px; position: absolute; z-index: 10; top: 0;  border: 0;align:center;}
+    #draggable-red{ left: 200px; background-color:red;}#draggable-blue{ left: 100px;background-color: yellow;}#draggable-green{ left: 200px; background-color: green;}
+
+	.droparea-red, .droparea-blue, .droparea-green{ height: 200px; width: 250px; position: absolute; background-image: ;}
+	.droparea-red{ border: 3px solid red; left: 0; bottom: 0;}
+	.droparea-blue{ border: 3px solid yellow; left: 300px; bottom: 0;}
+	.droparea-green{ border: 3px solid green; left: 600px; bottom: 0;}
+  </style>
+  
+  <title>MATCH THE FRUIT</title>
+  <!-- javascript-->
+<script type="text/javascript">
+$(window).load(function(){
+	$("#draggable-red, #draggable-blue, #draggable-green").draggable({ revert: "invalid", containment: "#content"});
+
+	$("#droppable-red").droppable({
+		accept: "#draggable-red",
+		activeClass: "ui-state-hover",
+		hoverClass: "ui-state-active",
+		drop: function(event, ui) {
+			$(this).addClass("ui-state-highlight").find("p").html("Apple!");
+		}
+	});
+
+	$("#droppable-blue").droppable({
+		accept: "#draggable-blue",
+		activeClass: "ui-state-hover",
+		hoverClass: "ui-state-active",
+		drop: function(event, ui) {
+			$(this).addClass("ui-state-highlight").find("p").html("Bannana!");
+		}
+	});
+
+	$("#droppable-green").droppable({
+		accept: "#draggable-green",
+		activeClass: "ui-state-hover",
+		hoverClass: "ui-state-active",
+		drop: function(event, ui) {
+			$(this).addClass("ui-state-highlight").find("p").html("grapes!");
+		}
+	});
+});//]]> 
+
+</script>
+<!--javascript-->
+ </head>
+
+<body style="cursor: auto;">
+           
+  		<div id="content">
+                      
+		<div id="droppable-green" class="droparea-green ui-widget-header ui-droppable"><p><img src="https://sc02.alicdn.com/kf/UT8CxXoX4XaXXagOFbXv/Fresh-Grapes.jpg" height="150px";width="60px"></p></div>
+				<div id="droppable-blue" class="droparea-blue ui-widget-header ui-droppable"><p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFewwP4YsN3_HAUSylQ7dN-nht7TaJEeGuI4gKv8J4QKE34aGF4w" height="150px",width="60px"></p></div>
+				<div id="droppable-red" class="droparea-red ui-widget-header ui-droppable"><p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt5PLnNt69Z5_Ek0LvBbKRMllZ2JjOLMty0UJSbjTC3L6UgxSf" height="150px",width="60px"></div>
+				  
+				<div id="draggable-red" class="draggable-red ui-widget-content ui-draggable" style="left: 10px; top: 0px;"></div>
+				<div id="draggable-blue" class="draggable-blue ui-widget-content ui-draggable"></div>
+				<div id="draggable-green" class="draggable-green ui-widget-content ui-draggable"></div>		
+		</div>
+  
+</body>
+ 
+ 
+ </html>
